@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.AdminWindowController">
    <children>
       <Label text="Admin window" />
+      <Button fx:id="logoutButton" layoutX="329.0" layoutY="17.0" mnemonicParsing="false" onAction="#logOut" text="logout" />
    </children>
 </AnchorPane>

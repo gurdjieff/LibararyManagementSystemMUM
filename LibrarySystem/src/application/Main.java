@@ -1,5 +1,6 @@
 package application;
 	
+import fxml.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -14,16 +15,18 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 
 		// First we load the login window
-		try {			
-			Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginWindow.fxml"));
-			Scene scene = new Scene(root, 450, 300);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
+//		try {			
+//			Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginWindow.fxml"));
+//			Scene scene = new Scene(root, 450, 300);
+//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+//			primaryStage.setScene(scene);
+//			primaryStage.show();
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+		MainController mainCont  =new MainController();
 		
+		mainCont.loadLoginWindow(primaryStage);
 		
 	}
 	

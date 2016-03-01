@@ -9,16 +9,51 @@ import LibrarySystem.*;
 public class MainController {
 
 	
+	public void createAdminWindow(){		
+		try {	
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/AdminWindow.fxml"));
+		      Parent root1 = (Parent) fxmlLoader.load();
+		      Stage stage1 = new Stage();
+		      stage1.setScene(new Scene(root1));  
+		      stage1.show();      
+		} catch(Exception e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	public void createLibrarianWindow(){		
+		try {	
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/LibrarianWindow.fxml"));
+		      Parent root1 = (Parent) fxmlLoader.load();
+		      Stage stage1 = new Stage();
+		      stage1.setScene(new Scene(root1));  
+		      stage1.show();      
+		} catch(Exception e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	
+	public void createBothWindow(){		
+		try {	
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/BothWindow.fxml"));
+		      Parent root1 = (Parent) fxmlLoader.load();
+		      Stage stage1 = new Stage();
+		      stage1.setScene(new Scene(root1));  
+		      stage1.show();      
+		} catch(Exception e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	
 	
   public void loadLoginWindow(Stage primaryStage){
 		
 	  try {			
-			Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginWindow.fxml"));
-			
-			
+			Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginWindow.fxml"));			
 			
 			Scene scene = new Scene(root, 450, 300);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
@@ -26,6 +61,19 @@ public class MainController {
 		}
   }
     
+  
+  public void loadLoginWindow(){
+		
+	  try {			
+			Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginWindow.fxml"));			
+			Stage stage1 = new Stage();
+			Scene scene = new Scene(root, 450, 300);
+			stage1.setScene(scene);
+			stage1.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+  }
 	
 	
 	

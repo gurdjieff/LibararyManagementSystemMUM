@@ -6,21 +6,20 @@
 package fxml;
 
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 
 import LibrarySystem.*;
+import LibrarySystem.ConstTypes.UserType;
 
-/**
- * FXML Controller class
- *
- * @author Nasriddin
- */
 public class LoginPageController implements Initializable {
 
     /**
@@ -33,18 +32,33 @@ public class LoginPageController implements Initializable {
     
     @FXML private TextField username;
     @FXML private PasswordField password;
+    @FXML private Button loginbutton;
+    
     private Alert errorMessage = new Alert(Alert.AlertType.ERROR, "Wrong username or login, try again");
-    private Alert errorMessage2 = new Alert(Alert.AlertType.ERROR, "you're logged in!!!");
     
     // login button click()
     public void loginClick(ActionEvent event){
-        
-    	
+            	
+    	MainController mainCont  =new MainController();
     	
     	User currentUser = OperationAssistant.login(username.getText(), password.getText());
         // if username or password is found
         if(currentUser != null){
-        	errorMessage2.showAndWait();        	
+        	
+        	if(currentUser.getUserType() == UserType.ADMINE){
+        		
+        		mainCont.createAdminWindow();
+        		
+        	}else if (currentUser.getUserType() == UserType.LIBRARIAN){
+        		mainCont.createLibrarianWindow();
+        		
+        	}else if (currentUser.getUserType() == UserType.BOTH){
+        		mainCont.createBothWindow();
+        	}
+        	
+    		Stage stage = (Stage) loginbutton.getScene().getWindow();
+    		stage.close();
+        	
         }else{
         	errorMessage.showAndWait();
         }
