@@ -31,34 +31,19 @@ public class OperationAssistant {
 		return book;
 	}
 	
+	List<Book> getAllBooks () {
+		return null;
+	}
+	
+	Book searchBook (String ISBN) {
+		return null;
+	}
+	
 	BookCopy addCopy (Book book) {
 		BookCopy bookCopy = new BookCopy(book.getBookCopies().size(), true, book);
 		book.addCopy(bookCopy);
 //		persisting data;
 		return bookCopy;
-	}
-	
-	List<LibraryMember> getAllLibraryMembers () {
-//		persisting member data;
-		
-		return null;
-	}
-	
-	List<Book> getAllBooks () {
-		return null;
-	}
-
-	
-	LibraryMember addMember (LibraryMember member) {
-//		persisting member data;
-		
-		return member;
-	}
-	
-	
-	
-	Book searchBook (String ISBN) {
-		return null;
 	}
 	
 	BookCopy searchBookCopyWithISBN (String ISBN) {
@@ -74,10 +59,23 @@ public class OperationAssistant {
 		return null;
 	}
 	
-	LibraryMember searchMember (String ID) {
+	
+	LibraryMember addMember (LibraryMember member) {
+//		persisting member data;
+		
+		return member;
+	}
+	
+	List<LibraryMember> getAllLibraryMembers () {
+//		persisting member data;
+		
 		return null;
 	}
 	
+	LibraryMember searchMember (String ID) {
+		return null;
+	}
+
 	
 	CheckoutRecordEntry checkout(BookCopy bookCopy, LibraryMember member) {
 //		LibraryMember member = searchMember(memberID);
