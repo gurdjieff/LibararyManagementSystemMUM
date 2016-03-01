@@ -6,10 +6,14 @@ import java.io.ObjectOutputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.LinkedList;
+import java.util.List;
 
 import LibrarySystem.Address;
 import LibrarySystem.Book;
+import LibrarySystem.ConstTypes.UserType;
 import LibrarySystem.Person;
+import LibrarySystem.User;
 
 public class Tool {
 
@@ -30,6 +34,24 @@ public class Tool {
 			person.setAddress(address);
 			save("person" + j, person);
 		}
+
+		// init user
+		initUsers();
+	}
+
+	private static void initUsers() {
+		List<User> users = new LinkedList<User>() {
+			private static final long serialVersionUID = 1L;
+
+			{
+				for (int i = 0; i < 10; i++) {
+					add(new User(UserType.LIBRARIAN, "l" + i, "1"));
+					add(new User(UserType.ADMINE, "a" + i, "1"));
+					add(new User(UserType.BOTH, "b" + i, "1"));
+				}
+			}
+		};
+		save("users", users);
 	}
 
 	public static void save(String name, Object member) {

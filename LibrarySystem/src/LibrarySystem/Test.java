@@ -24,5 +24,8 @@ public class Test {
 
 		System.out.println(list2 == null);
 		System.out.println(((List<Person>) list2).get(0).getFirstName());
+
+		User login = OperationAssistant.login("l1", "1");
+		System.out.println(login.getID()+"===");
 	}
 }

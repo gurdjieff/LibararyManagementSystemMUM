@@ -1,12 +1,24 @@
 package LibrarySystem.db;
 
+import java.util.List;
+
 import LibrarySystem.Book;
 import LibrarySystem.LibraryMember;
 import LibrarySystem.Person;
+import LibrarySystem.User;
 
 public class DBService {
 	public boolean addMember(LibraryMember member) {
 		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<User> getAllUsers() {
+		Object obj = Tool.read("users");
+		if (obj == null) {
+			return null;
+		}
+		return (List<User>) obj;
 	}
 
 	public Book searchBook(String ISBN) {
