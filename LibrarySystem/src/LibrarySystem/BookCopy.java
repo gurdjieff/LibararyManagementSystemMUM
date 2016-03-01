@@ -1,14 +1,19 @@
 package LibrarySystem;
 
-public class BookCopy {
+import java.io.Serializable;
+
+public class BookCopy implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int copyID;
+
 	public int getCopyID() {
 		return copyID;
 	}
 
 	private boolean available;
 	private Book book;
-	
+
 	public Book getBook() {
 		return book;
 	}
