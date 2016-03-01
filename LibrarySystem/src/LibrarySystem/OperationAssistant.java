@@ -16,7 +16,7 @@ public class OperationAssistant {
 	};
 
 
-	static User login (String ID, String password) {
+	public static User login (String ID, String password) {
 		for (int i = 0; i < users.size(); i++) {
 			User user = users.get(i);
 			if (user.ID.equals(ID) && user.password.equals(password)) {

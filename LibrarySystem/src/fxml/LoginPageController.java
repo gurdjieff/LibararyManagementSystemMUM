@@ -14,6 +14,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 
+import LibrarySystem.*;
+
 /**
  * FXML Controller class
  *
@@ -32,19 +34,19 @@ public class LoginPageController implements Initializable {
     @FXML private TextField username;
     @FXML private PasswordField password;
     private Alert errorMessage = new Alert(Alert.AlertType.ERROR, "Wrong username or login, try again");
+    private Alert errorMessage2 = new Alert(Alert.AlertType.ERROR, "you're logged in!!!");
     
     // login button click()
     public void loginClick(ActionEvent event){
         
-        username.setText("hello");
-        String s = password.getText();
-        System.out.println(s);
-
-        // if username or password is not found
-        if(true){
-            errorMessage.showAndWait();
+    	
+    	
+    	User currentUser = OperationAssistant.login(username.getText(), password.getText());
+        // if username or password is found
+        if(currentUser != null){
+        	errorMessage2.showAndWait();        	
         }else{
-            // here opens ADMIN or LIBRARIAN window
+        	errorMessage.showAndWait();
         }
     }
     
