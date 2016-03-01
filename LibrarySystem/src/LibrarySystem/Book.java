@@ -15,7 +15,9 @@ public class Book {
 		return bookCopies;
 	}
 	
-	
+	public void addAuthor(Author author) {
+		authors.add(author);
+	}
 	
 	public void addCopy (BookCopy bookCopy) {
 		bookCopies.add(bookCopy);
