@@ -11,8 +11,9 @@ import javafx.scene.Parent;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		try {
-			
+
+		// First we load the login window
+		try {			
 			Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginWindow.fxml"));
 			Scene scene = new Scene(root, 450, 300);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
