@@ -38,11 +38,16 @@ public class OperationAssistant {
 		return bookCopy;
 	}
 	
-	List<LibraryMember> searchAllLibraryMembers () {
+	List<LibraryMember> getAllLibraryMembers () {
 //		persisting member data;
 		
 		return null;
 	}
+	
+	List<Book> getAllBooks () {
+		return null;
+	}
+
 	
 	LibraryMember addMember (LibraryMember member) {
 //		persisting member data;
@@ -81,8 +86,16 @@ public class OperationAssistant {
 		if (member != null && bookCopy != null) {
 			bookCopy.setAvailable(false);
 //			persisting
+			
+//			Date date=new Date();
+//			DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//			String time=format.format(date);
+			  Date nowTime = new Date(System.currentTimeMillis());
+			  Date dueTime = new Date(System.currentTimeMillis()+bookCopy.getBook().maxCheckoutLength*24*60*60*1000);
+
+
 			CheckoutRecordEntry checkoutRecordEntry = 
-					new CheckoutRecordEntry(bookCopy, new Date(0), new Date(0));
+					new CheckoutRecordEntry(bookCopy, nowTime, dueTime);
 //			add specific date.
 			member.getCheckoutRecord().addCheckoutEntry(checkoutRecordEntry);
 //			persisting

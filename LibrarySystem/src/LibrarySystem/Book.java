@@ -26,6 +26,7 @@ public class Book {
 	public Book() {
 		bookCopies = new LinkedList<BookCopy>();
 		authors = new LinkedList<Author>();
+		maxCheckoutLength = 1;
 	}
 	
 	public Book(String ISBN, String title, int maxCheckoutLength) {
