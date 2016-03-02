@@ -1,13 +1,56 @@
 package LibrarySystem.db;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import LibrarySystem.Book;
 import LibrarySystem.ConstTypes;
 import LibrarySystem.LibraryMember;
 import LibrarySystem.User;
+import LibrarySystem.ConstTypes.UserType;
 
 public class DataAccessFacede {
+	
+	static public void init () {
+		if (getAllBooks().size() == 0) {
+			addBook(new Book("11111", "book1", 1));
+			addBook(new Book("222", "book2", 2));
+			addBook(new Book("333", "book3", 3));
+			addBook(new Book("444", "book4", 4));
+		}
+		
+		if (getAllMembers().size() == 0) {
+			addMember(new LibraryMember("firstname01", "lastName02", null));
+			addMember(new LibraryMember("firstname01", "lastName02", null));
+			addMember(new LibraryMember("firstname01", "lastName02", null));
+			addMember(new LibraryMember("firstname01", "lastName02", null));
+		}
+		
+		if (getAllUsers().size() == 0) {
+			for (int i = 0; i < 10; i++) {
+				addUser(new User(UserType.LIBRARIAN, "l" + i, "1"));
+				addUser(new User(UserType.ADMINE, "a" + i, "1"));
+				addUser(new User(UserType.BOTH, "b" + i, "1"));
+			}
+		}	
+	}
+	
+	static public void clear () {
+		Tool.save(ConstTypes.LIBRARYMEMBERSTR , null);
+		Tool.save(ConstTypes.BOOKSTR , null);
+		Tool.save(ConstTypes.USERSTR , null);
+	}
+	public static void main(String[] args) {
+		clear();
+		init();
+	}
+	
+	public static void getAllBook () {
+		List<Book> books = getAllBooks();
+		for (int i = 0; i < books.size(); i++) {
+			System.out.println(books.get(i).toString());
+		}
+	}
 	
 	static public List<LibraryMember> getAllMembers () {
 		Object obj = Tool.read(ConstTypes.LIBRARYMEMBERSTR);

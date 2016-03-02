@@ -1,5 +1,6 @@
 package application;
 	
+import LibrarySystem.db.DataAccessFacede;
 import fxml.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +32,7 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		DataAccessFacede.init();
 		launch(args);
 	}
 }

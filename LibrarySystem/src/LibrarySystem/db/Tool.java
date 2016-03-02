@@ -18,10 +18,10 @@ import LibrarySystem.User;
 
 public class Tool {
 
-	public static final String OUTPUT_DIR = System.getProperty("user.dir")
-			+ "\\src\\LibrarySystem\\librarysample\\dataaccess\\storage";
+//	public static final String OUTPUT_DIR = System.getProperty("user.dir")
+//			+ "\\src\\LibrarySystem\\librarysample\\dataaccess\\storage";
 
-//	public static final String OUTPUT_DIR = "/Users/ajie/dataBase";
+	public static final String OUTPUT_DIR = "/Users/ajie/dataBase";
 
 	private static int AUTOID = 0;
 

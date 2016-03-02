@@ -85,5 +85,9 @@ public class Book implements Serializable {
 	public void setBookCopies(List<BookCopy> bookCopies) {
 		this.bookCopies = bookCopies;
 	}
+	
+	public String toString () {
+		return "ISBN:"+getISBN();
+	}
 
 }
