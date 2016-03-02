@@ -70,6 +70,7 @@ public class OperationAssistant {
 
 		if (member != null && bookCopy != null) {
 			bookCopy.setAvailable(false);
+			DBService.updateBook(bookCopy.getBook());
 			// persisting
 
 			// Date date=new Date();
@@ -82,6 +83,8 @@ public class OperationAssistant {
 			CheckoutRecordEntry checkoutRecordEntry = new CheckoutRecordEntry(bookCopy, nowTime, dueTime);
 			// add specific date.
 			member.getCheckoutRecord().addCheckoutEntry(checkoutRecordEntry);
+//			member.
+			
 			// persisting
 			//
 		}
