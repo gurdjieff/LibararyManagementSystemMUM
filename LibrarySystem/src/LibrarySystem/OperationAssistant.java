@@ -54,9 +54,6 @@ public class OperationAssistant {
 	}
 
 	public static CheckoutRecordEntry checkout(BookCopy bookCopy, LibraryMember member) {
-		// LibraryMember member = searchMember(memberID);
-		// BookCopy bookCopy = searchBookCopyWithISBN(ISBN);
-
 		if (member != null && bookCopy != null) {
 			bookCopy.setAvailable(false);
 			
