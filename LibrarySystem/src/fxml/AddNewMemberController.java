@@ -14,6 +14,7 @@ import LibrarySystem.OperationAssistant;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -41,7 +42,8 @@ public class AddNewMemberController implements Initializable {
     
     // button Add click()
     public void addButtonClick(ActionEvent event){
-        
+        Alert errorMessage = new Alert(Alert.AlertType.ERROR, "Please complete all of the information!");
+
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String street = streetField.getText();
@@ -49,6 +51,17 @@ public class AddNewMemberController implements Initializable {
         String state = stateField.getText();
         String zip = zipField.getText();
         String phoneNumber = telephoneField.getText();
+        if (firstName.length() == 0 
+        		|| lastName.length() == 0
+        		|| street.length() == 0
+        		|| city.length() == 0
+        		|| state.length() == 0
+        		|| zip.length() == 0
+        		|| phoneNumber.length() == 0) {
+        	errorMessage.showAndWait();
+        	return;
+			
+		}
         
         
         Address address = new Address(street, city, state, phoneNumber, zip);
@@ -66,8 +79,6 @@ public class AddNewMemberController implements Initializable {
 		Stage stage = (Stage) addButton.getScene().getWindow();
 		stage.close();
 //        
-        
-        
         
     }
     
