@@ -1,7 +1,9 @@
 package LibrarySystem.db;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
+import LibrarySystem.Author;
 import LibrarySystem.Book;
 import LibrarySystem.CheckoutRecord;
 import LibrarySystem.CheckoutRecordEntry;
@@ -14,10 +16,12 @@ public class DataAccessFacede {
 	
 	static public void init () {
 		if (getAllBooks().size() == 0) {
-			addBook(new Book("11111", "book1", 1));
-			addBook(new Book("222", "book2", 2));
-			addBook(new Book("333", "book3", 3));
-			addBook(new Book("444", "book4", 4));
+			for (int i = 0; i < 6; i++) {
+				List<Author> authors = new LinkedList<Author>();
+				authors.add(new Author("1firstName1"+i, "1lastName"+i));
+				authors.add(new Author("1firstName1"+i, "1lastName"+i));
+				addBook(new Book(""+(i+1), "book"+(i+1), i+1, i+1, authors));
+			}
 		}
 		
 		if (getAllMembers().size() == 0) {
