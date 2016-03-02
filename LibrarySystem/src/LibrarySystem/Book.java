@@ -36,7 +36,6 @@ public class Book implements Serializable {
 		this.ISBN = ISBN;
 		this.title = title;
 		this.maxCheckoutLength = maxCheckoutLength;
-
 	}
 
 	public Book(String ISBN, String title, int maxCheckoutLength, int numOfCopies, List<Author> authors) {
