@@ -6,10 +6,14 @@
 package fxml;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import LibrarySystem.Author;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 
@@ -37,7 +41,7 @@ public class AddBookController implements Initializable {
     @FXML private TextField author2Last;
     @FXML private TextField maxLength;
     @FXML private TextField numberCopies;
-    
+    @FXML private Button addBookButton;
     
     // button Add click()
     public void addButtonClick(ActionEvent event){
@@ -53,6 +57,7 @@ public class AddBookController implements Initializable {
         System.out.println(author2Last.getText());
         System.out.println(maxLength.getText());
         System.out.println(numberCopies.getText());
+        
         
         
     }

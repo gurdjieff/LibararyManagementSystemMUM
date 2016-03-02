@@ -7,6 +7,10 @@ package fxml;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import LibrarySystem.Book;
+import LibrarySystem.BookCopy;
+import LibrarySystem.OperationAssistant;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
@@ -32,13 +36,28 @@ public class AddBookCopyController implements Initializable {
     @FXML private TextField bookISBN;
     private Alert confirmMessage = new Alert(Alert.AlertType.CONFIRMATION, "new copy added successfully!");
     
+    
+    
     // button Add click()
     public void addButtonClick(ActionEvent event){
         
        // saving method
+    	
+    	String isbn = bookISBN.getText();
+    	
+//    	Book book = OperationAssistant.searchBook(isbn);
+//    	
+//    	if(book != null){
+//    		
+//    	}else{
+//    		
+//    	}
+    	
+    	
+    	
         
         
-        System.out.println(bookISBN.getText());
+        System.out.println(isbn);
         confirmMessage.showAndWait();
         
         
