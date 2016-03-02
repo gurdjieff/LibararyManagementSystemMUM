@@ -1,51 +1,41 @@
 package LibrarySystem;
 
-import java.lang.reflect.Member;
 import java.sql.Date;
 import java.util.List;
 
 import LibrarySystem.db.DBService;
+import LibrarySystem.db.DataAccessFacede;
 
 public class OperationAssistant {
 	public static User login(String ID, String password) {
-		List<User> users = DBService.getAllUsers();
-
-		for (int i = 0; i < users.size(); i++) {
-			User user = users.get(i);
-			if (user.ID.equals(ID) && user.password.equals(password)) {
-				return user;
-			}
-		}
-		return null;
+		return DataAccessFacede.getUser(ID, password);
 	}
 
 	public static Book addBook(Book book) {
-		DBService.addBook(book);
-		return book;
+		return DataAccessFacede.addBook(book);
 	}
 
 	public static BookCopy addCopy(Book book) {
 		BookCopy bookCopy = new BookCopy(book.getBookCopies().size(), true, book);
 		book.addCopy(bookCopy);
-		DBService.updateBook(book);
+		DataAccessFacede.updateBook(book);
 		return bookCopy;
 	}
 
 	public static List<LibraryMember> getAllLibraryMembers() {
-		return DBService.getAllLibraryMembers();
+		return DataAccessFacede.getAllMembers();
 	}
 
 	public static List<Book> getAllBooks() {
-		return DBService.getAllBooks();
+		return DataAccessFacede.getAllBooks();
 	}
 
 	public static LibraryMember addMember(LibraryMember member) {
-		DBService.addMember(member);
-		return member;
+		return DataAccessFacede.addMember(member);
 	}
 
 	public static Book searchBook(String ISBN) {
-		return DBService.searchBook(ISBN);
+		return DataAccessFacede.getBook(ISBN);
 	}
 
 	public static BookCopy searchBookCopyWithISBN(String ISBN) {
@@ -61,7 +51,7 @@ public class OperationAssistant {
 	}
 
 	public static LibraryMember searchMember(String id) {
-		return DBService.searchLibraryMember(id);
+		return DataAccessFacede.getMemberWithId(Integer.parseInt(id));
 	}
 
 	public static CheckoutRecordEntry checkout(BookCopy bookCopy, LibraryMember member) {
@@ -70,23 +60,17 @@ public class OperationAssistant {
 
 		if (member != null && bookCopy != null) {
 			bookCopy.setAvailable(false);
-			DBService.updateBook(bookCopy.getBook());
-			// persisting
-
-			// Date date=new Date();
-			// DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			// String time=format.format(date);
+			
 			Date nowTime = new Date(System.currentTimeMillis());
 			Date dueTime = new Date(
-					System.currentTimeMillis() + bookCopy.getBook().maxCheckoutLength * 24 * 60 * 60 * 1000);
-
+					System.currentTimeMillis() + bookCopy.getBook().maxCheckoutLength 
+					* 24 * 60 * 60 * 1000);
 			CheckoutRecordEntry checkoutRecordEntry = new CheckoutRecordEntry(bookCopy, nowTime, dueTime);
-			// add specific date.
 			member.getCheckoutRecord().addCheckoutEntry(checkoutRecordEntry);
-//			member.
 			
-			// persisting
-			//
+			
+			DataAccessFacede.updateBook(bookCopy.getBook());
+			DataAccessFacede.updateMember(member);
 		}
 		return null;
 	}
@@ -97,12 +81,11 @@ public class OperationAssistant {
 
 		if (member != null && bookCopy != null) {
 			bookCopy.setAvailable(false);
-			// persisting
 			CheckoutRecordEntry checkoutRecordEntry = new CheckoutRecordEntry(bookCopy, new Date(0), new Date(0));
-			// add specific date.
 			member.getCheckoutRecord().addCheckoutEntry(checkoutRecordEntry);
-			// persisting
-			//
+			
+			DataAccessFacede.updateBook(bookCopy.getBook());
+			DataAccessFacede.updateMember(member);
 		}
 
 		return null;
