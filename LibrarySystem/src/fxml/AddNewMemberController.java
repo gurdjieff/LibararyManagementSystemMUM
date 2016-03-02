@@ -7,17 +7,19 @@ package fxml;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import LibrarySystem.Address;
+import LibrarySystem.LibraryMember;
+import LibrarySystem.OperationAssistant;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
-/**
- * FXML Controller class
- *
- * @author Nasriddin
- */
+
 public class AddNewMemberController implements Initializable {
     
     /**
@@ -28,28 +30,42 @@ public class AddNewMemberController implements Initializable {
         // TODO
     }  
     
-    @FXML private TextField firstnamField;
-    @FXML private TextField lastnameField;
+    @FXML private TextField firstNameField;
+    @FXML private TextField lastNameField;
     @FXML private TextField streetField;
-    @FXML private TextField cityfiField;
-    @FXML private TextField statefielField;
-    @FXML private TextField zipfielField;
-    @FXML private TextField telephoneField;  
+    @FXML private TextField cityField;
+    @FXML private TextField stateField;
+    @FXML private TextField zipField;
+    @FXML private TextField telephoneField;
+    @FXML private Button addButton;
     
     // button Add click()
     public void addButtonClick(ActionEvent event){
         
-        String firstName = firstnamField.getText();
-        String lastName = lastnameField.getText();
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
         String street = streetField.getText();
-        String city = cityfiField.getText();
-        String state = statefielField.getText();
-        String zip = zipfielField.getText();
-        String telepohone = telephoneField.getText();
-        
-        // saving method
+        String city = cityField.getText();
+        String state = stateField.getText();
+        String zip = zipField.getText();
+        String phoneNumber = telephoneField.getText();
         
         
+        Address address = new Address(street, city, state, phoneNumber, zip);
+        
+        
+        
+    	 LibraryMember member = OperationAssistant.addMember(new LibraryMember(firstName, lastName, address));
+		System.out.println(member);
+//        
+//        // saving method
+//        OperationAssistant.addMember(new )
+//        LibraryMember addMember(LibraryMemb)
+        
+        // closing itself
+		Stage stage = (Stage) addButton.getScene().getWindow();
+		stage.close();
+//        
         
         
         

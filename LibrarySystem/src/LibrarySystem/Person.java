@@ -8,6 +8,13 @@ public class Person implements Serializable {
 	String firstName;
 	String lastName;
 	Address address;
+	
+	Person (String firstName, String lastName, Address address) {
+		this.firstName = firstName;
+		this.address = address;
+		this.lastName = lastName;
+		
+	}
 
 	public String getFirstName() {
 		return firstName;

@@ -18,39 +18,39 @@ public class OperationAssistant {
 		return null;
 	}
 
-	Book addBook(Book book) {
+	public static Book addBook(Book book) {
 		// persisting book data;
 		return book;
 	}
 
-	BookCopy addCopy(Book book) {
+	public static BookCopy addCopy(Book book) {
 		BookCopy bookCopy = new BookCopy(book.getBookCopies().size(), true, book);
 		book.addCopy(bookCopy);
 		// persisting data;
 		return bookCopy;
 	}
 
-	List<LibraryMember> getAllLibraryMembers() {
+	public static List<LibraryMember> getAllLibraryMembers() {
 		// persisting member data;
 
 		return null;
 	}
 
-	List<Book> getAllBooks() {
+	public static List<Book> getAllBooks() {
 		return null;
 	}
 
-	LibraryMember addMember(LibraryMember member) {
+	public static LibraryMember addMember(LibraryMember member) {
 		// persisting member data;
 
 		return member;
 	}
 
-	Book searchBook(String ISBN) {
+	public static Book searchBook(String ISBN) {
 		return null;
 	}
 
-	BookCopy searchBookCopyWithISBN(String ISBN) {
+	public static BookCopy searchBookCopyWithISBN(String ISBN) {
 		Book book = searchBook(ISBN);
 		for (int i = 0; i < book.getBookCopies().size(); i++) {
 			BookCopy bookCopy = book.getBookCopies().get(i);
@@ -62,11 +62,11 @@ public class OperationAssistant {
 		return null;
 	}
 
-	LibraryMember searchMember(String ID) {
+	public static LibraryMember searchMember(String ID) {
 		return null;
 	}
 
-	CheckoutRecordEntry checkout(BookCopy bookCopy, LibraryMember member) {
+	public static CheckoutRecordEntry checkout(BookCopy bookCopy, LibraryMember member) {
 		// LibraryMember member = searchMember(memberID);
 		// BookCopy bookCopy = searchBookCopyWithISBN(ISBN);
 
@@ -90,7 +90,7 @@ public class OperationAssistant {
 		return null;
 	}
 
-	CheckoutRecordEntry checkout(String ISBN, String memberID) {
+	public static CheckoutRecordEntry checkout(String ISBN, String memberID) {
 		LibraryMember member = searchMember(memberID);
 		BookCopy bookCopy = searchBookCopyWithISBN(ISBN);
 
