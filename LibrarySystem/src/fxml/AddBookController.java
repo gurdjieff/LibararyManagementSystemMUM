@@ -38,7 +38,7 @@ public class AddBookController implements Initializable {
         // TODO
     }  
     
-    
+
     @FXML private TextField bookISBN;
     @FXML private TextField bookTitle;
     @FXML private TextField author1Name;
@@ -52,18 +52,6 @@ public class AddBookController implements Initializable {
     
     // button Add click()
     public void addButtonClick(ActionEvent event){
-        
-       // saving method
-        
-        
-        System.out.println(bookISBN.getText());
-        System.out.println(bookTitle.getText());
-        System.out.println(author1Name.getText());
-        System.out.println(author1Last.getText());
-        System.out.println(author2Name.getText());
-        System.out.println(author2Last.getText());
-        System.out.println(maxLength.getText());
-        System.out.println(numberCopies.getText());
         
         if (bookISBN.getText().length() == 0
         			|| bookTitle.getText().length() == 0
