@@ -10,6 +10,10 @@ public class Address implements Serializable {
 	String zip;
 	String phoneNumber;
 	
+	public Address() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Address(String street, String city, String state, String phoneNumber, String zip) {
 		this.city = city;
 		this.street = street;

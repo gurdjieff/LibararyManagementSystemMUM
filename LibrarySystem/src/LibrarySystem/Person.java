@@ -9,6 +9,10 @@ public class Person implements Serializable {
 	String lastName;
 	Address address;
 	
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	Person (String firstName, String lastName, Address address) {
 		this.firstName = firstName;
 		this.address = address;
