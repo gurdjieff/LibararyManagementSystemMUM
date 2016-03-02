@@ -20,10 +20,28 @@ public class AdminWindowController  implements Initializable{
     } 
     
     public void logOut(){
-    	MainController mainCont  =new MainController();
+    	MainController mainCont  = new MainController();
     	mainCont.loadLoginWindow();
     	
 		Stage stage = (Stage) logoutButton.getScene().getWindow();
 		stage.close();
     }
+    
+    public void showAddMemberWindow(){
+    	System.out.println("addmemeber");
+    	MainController mainCont  = new MainController();
+    	mainCont.loadAddMember();  
+    	
+
+    }
+    
+    public void showAddBookWindow(){
+    	System.out.println("addbook");
+    	MainController mainCont  = new MainController();
+    	mainCont.loadAddBook();
+    	
+    }
+    
+    
+    
 }

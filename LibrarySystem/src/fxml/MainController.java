@@ -3,6 +3,7 @@ package fxml;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import LibrarySystem.*;
 
@@ -75,6 +76,35 @@ public class MainController {
 		}
   }
 	
+  
+  public void loadAddMember(){
+		
+	  try {			
+			Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddNewMember.fxml"));			
+			Stage stage1 = new Stage();
+			Scene scene = new Scene(root, 450, 300);
+			stage1.setScene(scene);
+			stage1.initModality(Modality.APPLICATION_MODAL);
+			stage1.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+  }
 	
+  
+  public void loadAddBook(){
+		
+	  try {			
+			Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddBook.fxml"));			
+			Stage stage1 = new Stage();
+			Scene scene = new Scene(root, 450, 300);
+			stage1.setScene(scene);
+			
+			stage1.initModality(Modality.APPLICATION_MODAL);
+			stage1.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+  }
 	
 }
