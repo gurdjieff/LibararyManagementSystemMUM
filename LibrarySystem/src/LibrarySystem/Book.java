@@ -30,6 +30,15 @@ public class Book implements Serializable {
 		bookCopies = new LinkedList<BookCopy>();
 		authors = new LinkedList<Author>();
 	}
+	
+	public Book(String ISBN, String title, int maxCheckoutLength) {
+		this();
+		this.ISBN = ISBN;
+		this.title = title;
+		this.maxCheckoutLength = maxCheckoutLength;
+		
+		
+	}
 
 	public Book(String ISBN, String title, int maxCheckoutLength,
 			int numOfCopies,List<Author>authors) {
