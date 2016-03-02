@@ -1,28 +1,33 @@
 package LibrarySystem.db;
-
-import java.lang.reflect.Member;
-import java.sql.Savepoint;
+import java.util.ArrayList;
 import java.util.List;
 
 import LibrarySystem.Book;
+import LibrarySystem.ConstTypes;
 import LibrarySystem.LibraryMember;
 import LibrarySystem.User;
 
 public class DataAccessFacede {
 	
 	static public List<LibraryMember> getAllMembers () {
-		return null;
+		Object obj = Tool.read(ConstTypes.LIBRARYMEMBERSTR);
+		if (obj == null) {			
+			return new ArrayList<LibraryMember>();
+		}  
+		return (List<LibraryMember>) obj;
 	}
 	
 	static public void membersPersistence (List<LibraryMember> members) {
-		
+		Tool.save(ConstTypes.LIBRARYMEMBERSTR , members);
 	}
 	
 	static public void booksPersistence (List<Book> books) {
-		
+		Tool.save(ConstTypes.BOOKSTR , books);
 	}
 	
 	static public void usersPersistence (List<User> users) {
+		Tool.save(ConstTypes.USERSTR , users);
+
 		
 	}
 	
@@ -58,7 +63,11 @@ public class DataAccessFacede {
 	}
 	
 	static public List<Book> getAllBooks () {
-		return null;
+		Object obj = Tool.read(ConstTypes.BOOKSTR);
+		if (obj == null) {			
+			return new ArrayList<Book>();
+		}  
+		return (List<Book>) obj;
 	}
 	
 	static public Book getBook(String ISBN) {
@@ -96,7 +105,11 @@ public class DataAccessFacede {
 	}
 	
 	static public List<User> getAllUsers () {
-		return null;
+		Object obj = Tool.read(ConstTypes.USERSTR);
+		if (obj == null) {			
+			return new ArrayList<User>();
+		}  
+		return (List<User>) obj;
 	}
 	
 	
