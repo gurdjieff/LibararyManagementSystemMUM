@@ -7,4 +7,10 @@ public class Author extends Person implements Serializable{
 	String Credential;
 	String shortBio;
 	
+	public Author(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		// TODO Auto-generated constructor stub
+	}
+	
 }
