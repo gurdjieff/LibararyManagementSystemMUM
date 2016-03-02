@@ -1,5 +1,6 @@
 package LibrarySystem.db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import LibrarySystem.Book;
@@ -42,9 +43,9 @@ public class DBService {
 	@SuppressWarnings("unchecked")
 	public static List<LibraryMember> getAllLibraryMembers() {
 		Object obj = Tool.read(ConstTypes.LIBRARYMEMBERSTR);
-		if (obj == null) {
-			return null;
-		}
+		if (obj == null) {			
+			return new ArrayList<LibraryMember>();
+		}  
 		return (List<LibraryMember>) obj;
 	}
 
@@ -54,6 +55,7 @@ public class DBService {
 		member.setID(id);
 		Tool.save(ConstTypes.LIBRARYMEMBERSTR + id, member);
 		List<LibraryMember> allLibraryMembers = getAllLibraryMembers();
+		
 		allLibraryMembers.add(member);
 		Tool.save(ConstTypes.LIBRARYMEMBERSTR, allLibraryMembers);
 	}
