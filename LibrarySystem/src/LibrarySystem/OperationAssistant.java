@@ -1,5 +1,6 @@
 package LibrarySystem;
 
+import java.lang.reflect.Member;
 import java.sql.Date;
 import java.util.List;
 
@@ -103,5 +104,15 @@ public class OperationAssistant {
 
 		return null;
 	}
+	
+	public static void disPlayMembers() {
+		List<LibraryMember> list = getAllLibraryMembers();
+		for (int i = 0; i < list.size(); i++) {
+			LibraryMember member = list.get(i);
+			System.out.println(i+1+" | "+member.firstName+" | "+member.lastName+member.address.toString());
+			
+		}
+	}
+
 
 }
