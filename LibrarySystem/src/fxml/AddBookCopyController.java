@@ -15,7 +15,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -34,8 +36,9 @@ public class AddBookCopyController implements Initializable {
     
     
     @FXML private TextField bookISBN;
+    @FXML private Button addBookCopyButton;
     private Alert confirmMessage = new Alert(Alert.AlertType.CONFIRMATION, "new copy added successfully!");
-    
+    private Alert errorMessage = new Alert(Alert.AlertType.CONFIRMATION, "Book is not found, try again!");
     
     
     // button Add click()
@@ -45,20 +48,20 @@ public class AddBookCopyController implements Initializable {
     	
     	String isbn = bookISBN.getText();
     	
-//    	Book book = OperationAssistant.searchBook(isbn);
-//    	
-//    	if(book != null){
-//    		
-//    	}else{
-//    		
-//    	}
+    	Book book = OperationAssistant.searchBook(isbn);
     	
+    	if(book != null){
+    		
+    		OperationAssistant.addCopy(book);
+    		confirmMessage.showAndWait();
+    		
+    		Stage stage = (Stage) addBookCopyButton.getScene().getWindow();
+    		stage.close();
+    		
+    	}else{
+    		errorMessage.showAndWait();
+    	}
     	
-    	
-        
-        
-        System.out.println(isbn);
-        confirmMessage.showAndWait();
         
         
     }
