@@ -13,7 +13,10 @@ public class AdminWindowController  implements Initializable{
      * Initializes the controller class.
      */
 	
-	@FXML private Button logoutButton;	
+	@FXML private Button logoutButton;
+//	@FXML private Button addBookCopyButton;
+	
+	
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -39,6 +42,13 @@ public class AdminWindowController  implements Initializable{
     	System.out.println("addbook");
     	MainController mainCont  = new MainController();
     	mainCont.loadAddBook();
+    	
+    }
+    
+    public void showAddBookCopyWindow(){
+    	System.out.println("addbookCopy");
+    	MainController mainCont  = new MainController();
+    	mainCont.loadAddCopyBook();
     	
     }
     

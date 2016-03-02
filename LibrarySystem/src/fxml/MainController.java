@@ -97,7 +97,7 @@ public class MainController {
 	  try {			
 			Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddBook.fxml"));			
 			Stage stage1 = new Stage();
-			Scene scene = new Scene(root, 450, 300);
+			Scene scene = new Scene(root, 450, 400);
 			stage1.setScene(scene);
 			
 			stage1.initModality(Modality.APPLICATION_MODAL);
@@ -107,4 +107,20 @@ public class MainController {
 		}
   }
 	
+  public void loadAddCopyBook(){
+		
+	  try {			
+			Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddBookCopy.fxml"));			
+			Stage stage1 = new Stage();
+			Scene scene = new Scene(root, 300, 130);
+			stage1.setScene(scene);
+			
+			stage1.initModality(Modality.APPLICATION_MODAL);
+			stage1.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+  }
+  
+  
 }

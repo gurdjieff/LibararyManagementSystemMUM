@@ -11,5 +11,6 @@
       <Button fx:id="logoutButton" layoutX="287.0" layoutY="246.0" mnemonicParsing="false" onAction="#logOut" text="logout" />
       <Button fx:id="addMemberButton" layoutX="40.0" layoutY="42.0" mnemonicParsing="false" onAction="#showAddMemberWindow" prefHeight="45.0" prefWidth="309.0" text="AddMember" />
       <Button fx:id="addBookButton" layoutX="40.0" layoutY="90.0" mnemonicParsing="false" onAction="#showAddBookWindow" prefHeight="45.0" prefWidth="309.0" text="AddBook" />
+      <Button fx:id="addBookCopyButton" layoutX="41.0" layoutY="138.0" mnemonicParsing="false" onAction="#showAddBookCopyWindow" prefHeight="45.0" prefWidth="309.0" text="Add Book Copy" />
    </children>
 </AnchorPane>
