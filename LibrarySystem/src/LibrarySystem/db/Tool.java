@@ -17,8 +17,12 @@ import LibrarySystem.User;
 
 public class Tool {
 
-	public static final String OUTPUT_DIR = System.getProperty("user.dir") + "\\LibrarySystem"
-			+ "\\src\\LibrarySystem\\librarysample\\dataaccess\\storage";
+//	public static final String OUTPUT_DIR = System.getProperty("user.dir") + "\\LibrarySystem"
+//			+ "\\src\\LibrarySystem\\librarysample\\dataaccess\\storage";
+	
+	public static final String OUTPUT_DIR = "/Users/ajie/dataBase";
+	
+	
 
 	public static void init() {
 		for (int i = 0; i < 10; i++) {
