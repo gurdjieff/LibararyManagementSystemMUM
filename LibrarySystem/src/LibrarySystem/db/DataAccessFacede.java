@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import LibrarySystem.Book;
+import LibrarySystem.CheckoutRecord;
+import LibrarySystem.CheckoutRecordEntry;
 import LibrarySystem.ConstTypes;
 import LibrarySystem.LibraryMember;
 import LibrarySystem.User;
@@ -171,4 +173,29 @@ public class DataAccessFacede {
 		usersPersistence(users);
 		return user;
 	}
+        
+        public static void printUserCheckoutRecords(int id) {
+            LibraryMember member = getMemberWithId(id);
+            String line = new String(new char[20]).replace("\0", "-");
+            System.out.println(line);
+            System.out.printf("--%s %s(%s) checkout record list--\r\n",
+                    member.getFirstName(),
+                    member.getLastName(),
+                    member.getID());
+            System.out.printf("|%20s|", "Book");
+            System.out.printf("%15s|", "CheckoutDate");
+            System.out.printf("%15s|\n", "DueDate");
+            System.out.println(line);
+
+            CheckoutRecord checkoutRecord = member.getCheckoutRecord();
+
+            List<CheckoutRecordEntry> entries = checkoutRecord.getCheckoutRecordEntries();
+
+            entries.stream().forEach((entry)->{
+                System.out.printf("|%20s|", entry.getBookCopy().getBook().getTitle());
+                System.out.printf("%15s|", entry.getCheckoutDate());
+                System.out.printf("%15s|\n", entry.getDueDate());
+                System.out.println(line);
+            });
+    }
 }

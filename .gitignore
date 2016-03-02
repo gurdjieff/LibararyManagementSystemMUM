@@ -41,3 +41,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/LibrarySystem/nbproject/private/
+LibrarySystem/build.xml
+LibrarySystem/manifest.mf
+LibrarySystem/nbproject/build-impl.xml
+LibrarySystem/nbproject/genfiles.properties
+LibrarySystem/nbproject/project.properties
+LibrarySystem/nbproject/project.xml
