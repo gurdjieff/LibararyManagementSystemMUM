@@ -47,7 +47,7 @@ public class AddBookController implements Initializable {
     @FXML private TextField author2Last;
     @FXML private TextField maxLength;
     @FXML private TextField numberCopies;
-    @FXML private javafx.scene.control.Button addBookCop ;
+    @FXML private javafx.scene.control.Button addBookButton ;
 
     
     // button Add click()
@@ -92,19 +92,17 @@ public class AddBookController implements Initializable {
 			// TODO: handle exception
 		}
         
-        List<Author> authors = new LinkedList<Author>(){
-        	{
-        		add(new Author(author1Name.getText(), author1Last.getText()));
-        		add(new Author(author2Name.getText(), author2Last.getText()));
+        List<Author> authors = new LinkedList<Author>();
+        authors.add(new Author(author1Name.getText(), author1Last.getText()));
+        authors.add(new Author(author2Name.getText(), author2Last.getText()));
 
-        	}
-        };
+        
         OperationAssistant.addBook(new Book(bookISBN.getText(), 
         		bookTitle.getText(), length, copies, authors));
    
        // closing itself
-//		Stage stage = (Stage) addButton.getScene().getWindow();
-//		stage.close();
+		Stage stage = (Stage) addBookButton.getScene().getWindow();
+		stage.close();
         
         
         

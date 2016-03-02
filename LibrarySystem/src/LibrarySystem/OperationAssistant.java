@@ -26,6 +26,7 @@ public class OperationAssistant {
 	public static BookCopy addCopy(Book book) {
 		BookCopy bookCopy = new BookCopy(book.getBookCopies().size(), true, book);
 		book.addCopy(bookCopy);
+		
 		// persisting data;
 		return bookCopy;
 	}
