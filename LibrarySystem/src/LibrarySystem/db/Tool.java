@@ -11,21 +11,33 @@ import java.util.List;
 
 import LibrarySystem.Address;
 import LibrarySystem.Book;
+import LibrarySystem.ConstTypes;
 import LibrarySystem.ConstTypes.UserType;
 import LibrarySystem.Person;
 import LibrarySystem.User;
 
 public class Tool {
 
-	public static final String OUTPUT_DIR = System.getProperty("user.dir") + "\\src\\LibrarySystem\\librarysample\\dataaccess\\storage";
-	
-	//public static final String OUTPUT_DIR = "/Users/ajie/dataBase";
-	
-	
+	public static final String OUTPUT_DIR = System.getProperty("user.dir")
+			+ "\\src\\LibrarySystem\\librarysample\\dataaccess\\storage";
+
+	// public static final String OUTPUT_DIR = "/Users/ajie/dataBase";
+
+	private static long AUTOID = 0;
+
+	public static long nextID() {
+		AUTOID++;
+		return AUTOID;
+	}
+
+	static {
+		init();
+	}
 
 	public static void init() {
 		for (int i = 0; i < 10; i++) {
-			save("book" + i, new Book(i + "", i + "", i));
+			save(ConstTypes.BOOKSTR + i, new Book(i + "", i + "", i));
+			nextID();
 		}
 
 		for (int j = 0; j < 10; j++) {
@@ -35,7 +47,7 @@ public class Tool {
 			Address address = new Address();
 			address.setCity("IA" + j);
 			person.setAddress(address);
-			save("person" + j, person);
+			save(ConstTypes.PERSONSTR + j, person);
 		}
 
 		// init user
@@ -51,10 +63,11 @@ public class Tool {
 					add(new User(UserType.LIBRARIAN, "l" + i, "1"));
 					add(new User(UserType.ADMINE, "a" + i, "1"));
 					add(new User(UserType.BOTH, "b" + i, "1"));
+					nextID();
 				}
 			}
 		};
-		save("users", users);
+		save(ConstTypes.USERSTR, users);
 	}
 
 	public static void save(String name, Object member) {

@@ -19,35 +19,32 @@ public class OperationAssistant {
 	}
 
 	public static Book addBook(Book book) {
-		// persisting book data;
+		DBService.addBook(book);
 		return book;
 	}
 
 	public static BookCopy addCopy(Book book) {
 		BookCopy bookCopy = new BookCopy(book.getBookCopies().size(), true, book);
 		book.addCopy(bookCopy);
-		// persisting data;
+		DBService.updateBook(book);
 		return bookCopy;
 	}
 
 	public static List<LibraryMember> getAllLibraryMembers() {
-		// persisting member data;
-
-		return null;
+		return DBService.getAllLibraryMembers();
 	}
 
 	public static List<Book> getAllBooks() {
-		return null;
+		return DBService.getAllBooks();
 	}
 
 	public static LibraryMember addMember(LibraryMember member) {
-		// persisting member data;
-
+		DBService.addMember(member);
 		return member;
 	}
 
 	public static Book searchBook(String ISBN) {
-		return null;
+		return DBService.searchBook(ISBN);
 	}
 
 	public static BookCopy searchBookCopyWithISBN(String ISBN) {
@@ -62,8 +59,8 @@ public class OperationAssistant {
 		return null;
 	}
 
-	public static LibraryMember searchMember(String ID) {
-		return null;
+	public static LibraryMember searchMember(String id) {
+		return DBService.searchLibraryMember(id);
 	}
 
 	public static CheckoutRecordEntry checkout(BookCopy bookCopy, LibraryMember member) {
