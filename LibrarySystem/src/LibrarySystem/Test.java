@@ -27,5 +27,6 @@ public class Test {
 
 		User login = OperationAssistant.login("l1", "1");
 		System.out.println(login.getID()+"===");
+		OperationAssistant.disPlayMembers();
 	}
 }

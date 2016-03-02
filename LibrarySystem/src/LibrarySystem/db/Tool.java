@@ -21,11 +21,11 @@ public class Tool {
 	public static final String OUTPUT_DIR = System.getProperty("user.dir")
 			+ "\\src\\LibrarySystem\\librarysample\\dataaccess\\storage";
 
-	// public static final String OUTPUT_DIR = "/Users/ajie/dataBase";
+//	public static final String OUTPUT_DIR = "/Users/ajie/dataBase";
 
-	private static long AUTOID = 0;
+	private static int AUTOID = 0;
 
-	public static long nextID() {
+	public static int nextID() {
 		AUTOID++;
 		return AUTOID;
 	}
@@ -122,7 +122,7 @@ public class Tool {
 			in = new ObjectInputStream(Files.newInputStream(path));
 			member = in.readObject();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		} finally {
 			if (in != null) {
 				try {

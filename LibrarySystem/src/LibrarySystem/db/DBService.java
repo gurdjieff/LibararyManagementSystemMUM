@@ -50,15 +50,12 @@ public class DBService {
 
 	public static void addMember(LibraryMember member) {
 		// Tool.save(ConstTypes.LIBRARYMEMBERSTR + member.getID(), member);
-		Tool.save(ConstTypes.LIBRARYMEMBERSTR + Tool.nextID(), member);
-
+		int id = Tool.nextID();
+		member.setID(id);
+		Tool.save(ConstTypes.LIBRARYMEMBERSTR + id, member);
 		List<LibraryMember> allLibraryMembers = getAllLibraryMembers();
-		for (LibraryMember m : allLibraryMembers) {
-			if (m.getID() == member.getID()) {
-				return;
-			}
-		}
 		allLibraryMembers.add(member);
+		Tool.save(ConstTypes.LIBRARYMEMBERSTR, allLibraryMembers);
 	}
 
 	public static LibraryMember searchLibraryMember(String id) {
