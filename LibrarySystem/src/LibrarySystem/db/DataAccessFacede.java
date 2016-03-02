@@ -1,6 +1,5 @@
 package LibrarySystem.db;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import LibrarySystem.Book;
@@ -27,7 +26,7 @@ public class DataAccessFacede {
 		}
 		
 		if (getAllUsers().size() == 0) {
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 4; i++) {
 				addUser(new User(UserType.LIBRARIAN, "l" + i, "1"));
 				addUser(new User(UserType.ADMINE, "a" + i, "1"));
 				addUser(new User(UserType.BOTH, "b" + i, "1"));
@@ -159,7 +158,7 @@ public class DataAccessFacede {
 	static public User getUser (String ID, String password) {
 		List<User> users = getAllUsers();
 		for (int i = 0; i < users.size(); i++) {
-			if (users.get(i).getID().equals(ID) && users.get(i).equals(password)) {
+			if (users.get(i).getID().equals(ID) && users.get(i).getPassword().equals(password)) {
 				return users.get(i);
 			}
 		}
