@@ -47,7 +47,7 @@ public class Book implements Serializable {
 		for (int i = 0; i < numOfCopies; i++) {
 			addCopy(new BookCopy(i, true, this));
 		}
-		authors.addAll(authors);
+		this.authors.addAll(authors);
 	}
 
 	public String getISBN() {
