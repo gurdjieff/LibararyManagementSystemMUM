@@ -19,7 +19,7 @@
          </VBox.margin>
       </Label>
       <TextField fx:id="bookISBN" />
-      <Button mnemonicParsing="false" onAction="#addButtonClick" prefHeight="30.0" prefWidth="135.0" text="Add a book copy">
+      <Button fx:id="addBookCopyButton" mnemonicParsing="false" onAction="#addButtonClick" prefHeight="30.0" prefWidth="135.0" text="Add a book copy">
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>

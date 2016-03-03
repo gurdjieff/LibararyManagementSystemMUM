@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -36,6 +37,7 @@ public class AddBookController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    	maxLengthComboBox.getItems().addAll("21", "7");
     }  
     
 
@@ -45,8 +47,9 @@ public class AddBookController implements Initializable {
     @FXML private TextField author1Last;
     @FXML private TextField author2Name;
     @FXML private TextField author2Last;
-    @FXML private TextField maxLength;
     @FXML private TextField numberCopies;
+    @FXML private ComboBox<String> maxLengthComboBox;
+    
     @FXML private javafx.scene.control.Button addBookButton ;
 
     
@@ -59,7 +62,7 @@ public class AddBookController implements Initializable {
 					|| author1Last.getText().length() == 0
 					|| author2Name.getText().length() == 0
 					|| author2Last.getText().length() == 0
-					|| maxLength.getText().length() == 0
+					|| maxLengthComboBox.getValue().length() == 0
 					|| numberCopies.getText().length() == 0) {
             Alert errorMessage = new Alert(Alert.AlertType.ERROR, "Please complete all of the information!");
             errorMessage.showAndWait();
@@ -71,7 +74,7 @@ public class AddBookController implements Initializable {
         int copies = 0;
         
         try {
-        	length = Integer.parseInt(maxLength.getText());
+        	length = Integer.parseInt(maxLengthComboBox.getValue());
         	copies = Integer.parseInt(numberCopies.getText());
 		} catch (Exception e) {
 			Alert errorMessage = new Alert(Alert.AlertType.ERROR, "MaxLength or number of copies is wrong!");

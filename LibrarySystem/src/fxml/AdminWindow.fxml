@@ -1,16 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.AdminWindowController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="350.0" style="-fx-background-color: #92A4A4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.AdminWindowController">
    <children>
-      <Label text="Admin window" />
-      <Button fx:id="logoutButton" layoutX="287.0" layoutY="246.0" mnemonicParsing="false" onAction="#logOut" text="logout" />
-      <Button fx:id="addMemberButton" layoutX="40.0" layoutY="42.0" mnemonicParsing="false" onAction="#showAddMemberWindow" prefHeight="45.0" prefWidth="309.0" text="AddMember" />
-      <Button fx:id="addBookButton" layoutX="40.0" layoutY="90.0" mnemonicParsing="false" onAction="#showAddBookWindow" prefHeight="45.0" prefWidth="309.0" text="AddBook" />
-      <Button fx:id="addBookCopyButton" layoutX="41.0" layoutY="138.0" mnemonicParsing="false" onAction="#showAddBookCopyWindow" prefHeight="45.0" prefWidth="309.0" text="Add Book Copy" />
+      <HBox prefHeight="51.0" prefWidth="300.0">
+         <children>
+            <Label prefHeight="51.0" prefWidth="273.0" text="ADMIN" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #FF0015;" text="logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="3.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <VBox prefHeight="100.0" prefWidth="280.0" style="-fx-background-color: #B4B6F2;">
+         <children>
+            <Label prefHeight="17.0" prefWidth="339.0" text="Library Member Management">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="viewMembersButton" mnemonicParsing="false" onAction="#showViewMembersWindow" prefHeight="63.0" prefWidth="150.0" text="View Members" />
+                  <Button fx:id="addMemberButton" mnemonicParsing="false" onAction="#showAddMemberWindow" prefHeight="63.0" prefWidth="150.0" text="Add New Member">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="100.0" prefWidth="280.0" style="-fx-background-color: #F2B0B7;">
+         <children>
+            <Label prefHeight="17.0" prefWidth="122.0" text="Book  Management" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#showViewBooksWindow" prefHeight="63.0" prefWidth="150.0" text="View Books" />
+                  <VBox prefHeight="63.0" prefWidth="150.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#showAddBookWindow" prefHeight="30.0" prefWidth="150.0" text="Add New Book" />
+                        <Button mnemonicParsing="false" onAction="#showAddBookCopyWindow" prefHeight="30.0" prefWidth="155.0" text="Add New Book Copy">
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="100.0" prefWidth="330.0" style="-fx-background-color: #B5F2B0;">
+         <children>
+            <Label disable="true" prefHeight="17.0" prefWidth="347.0" text="Checkout Records" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="150.0">
+                     <children>
+                        <Button disable="true" mnemonicParsing="false" onAction="#showViewCheckoutRecordWindow" prefHeight="30.0" prefWidth="159.0" text="View checkout Record" />
+                        <TextField fx:id="memberIDText" disable="true" prefHeight="30.0" prefWidth="150.0" promptText="Enter member ID">
+                           <VBox.margin>
+                              <Insets top="3.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <Button disable="true" mnemonicParsing="false" onAction="#showCheckoutWindow" prefHeight="63.0" prefWidth="150.0" text="Add New Checkout">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
    </children>
-</AnchorPane>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
