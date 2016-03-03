@@ -30,11 +30,11 @@ public class Tool {
 		} else {
 			// for mac or other
 			try {
-				OUTPUT_DIR = "/Users/LibrarySystemDB";
+				OUTPUT_DIR = "/tmp/LibrarySystemDB";
 				file = new File(OUTPUT_DIR);
 				file.mkdirs();
 			} catch (Exception e) {
-				OUTPUT_DIR = "/Users/tmp/LibrarySystemDB";
+				OUTPUT_DIR = "/tmp/LibrarySystemDB";
 				file = new File(OUTPUT_DIR);
 				file.mkdirs();
 			}
